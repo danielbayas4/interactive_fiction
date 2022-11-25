@@ -4,6 +4,7 @@
 #include "wordwrap.h"
 #include "GameObject.h"
 #include <list>
+#include <iostream>
 
 using namespace std;
 
@@ -25,25 +26,23 @@ Room::~Room() {
 
 }
 
-//string objectsStrings(list<GameObject*> & _objects){
-//
-//}
-//
-////objects -> insert(iter, gameOb);
-////To-do: Eso de start y end
-//
-//    list<GameObject *>::iterator it;
-//    for (it = objects.begin(); it != objects.end(); ++it){
-//        std::cout << it->name;
-//    }
-////}
-
 void Room::describe() const {
     wrapOut(this->name);
     wrapEndPara();
     wrapOut(this->description);
     wrapEndPara();
     //Aquí tiene que aparecer un string con la información
+
+//    for (list<GameObject*>::iterator it = objects.begin(); it != objects.end(); ++it){
+//        cout << it-> name;
+//    }
+//
+//    for (const auto & object: objects){ //Debería poner un const? (const auto & object: objects)
+//        std::cout << object-> getName() << std::endl;
+//
+//        //[m] Como hago para que compile funcione con wrapOut?
+//        //wrapOut(* object-> getName());
+//    }
 
 }
 
@@ -57,7 +56,7 @@ void Room::deleteObject(GameObject * rGameObject){
 
 
 
-Room* Room::addRoomPar(const string *_name, const string *_desc, list<GameObject *> _objects) {
+Room* Room::addRoomPar(const string *_name, const string *_desc, list<GameObject *> &_objects) {
     auto *newRoom = new Room(_name, _desc,_objects);
     Room::rooms.push_back(newRoom); //[m] Que carajos hace este push back?
     return newRoom; //A pointer to the newly created room.

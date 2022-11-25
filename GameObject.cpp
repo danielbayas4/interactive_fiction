@@ -16,6 +16,9 @@ using std::string;
 GameObject::GameObject(const string &_name, const string &_desc, const string &_keyword):
         name(_name), description(_desc), keyword(_keyword){}
 
+const string getName(){
+
+}
 //void setName();
 
 //getName

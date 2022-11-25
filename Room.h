@@ -47,7 +47,7 @@ public:
      * Statically creates a room and then adds it to the global list.
      * @return A pointer to the newly created room.
      */
-    static Room* addRoomPar(const string *_name, const string *_desc, list<GameObject*> _objects);
+    static Room* addRoomPar(const string *_name, const string *_desc, list<GameObject*> &_objects);
 
     static void addRoom(Room* room);
 

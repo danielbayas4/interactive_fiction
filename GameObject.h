@@ -16,7 +16,7 @@ using std::string;
 
 class GameObject {
 
-protected:
+private:
     //Les quité los pointers para usar el reference, debería usar pointer?
     const string name;
     const string description;
@@ -24,6 +24,7 @@ protected:
 
 public:
     GameObject(const string &_name, const string &_desc, const string &_keyword); //Tengo que agregar el pointer aquí
+    string getName();
 
 
     //void setName();
