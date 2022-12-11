@@ -7,7 +7,7 @@
 
 class State {
     Room *currentRoom;
-    //list<GameObject*> inventory;
+    list<GameObject*> inventory;
 
 
 public:
@@ -15,7 +15,13 @@ public:
     void goTo(Room *target);
     void announceLoc() const;
     Room* getCurrentRoom() const;
-};
 
+    void deleteObject_inventory(GameObject * to_be_eliminated); //[m] Expansion: Debería usar el pointer o solamente '(string input-keyword)' ?
+    void add_to_inventory(GameObject * gameObject);
+    void describe_objects_inventory();
+    bool isPresent_inventory(string keyword);
+    GameObject * getObject(string  keyword);
+
+};
 
 #endif //TEXTADV_STATE_H

@@ -8,6 +8,7 @@
 #include <list>
 #include "GameObject.h"
 #include "strings.h"
+#include <iostream>
 
 
 using std::string;
@@ -23,13 +24,16 @@ private:
     Room* south;
     Room* west;
 
-    /*
-     [used] o debería ser list<GameObject> objects; o debería ser list<GameObject*> * objects
-     */
-    list<GameObject*> objects;
+
+    //p-cause: estoy declarando mal esta variable
+        //p-change: list<GameObject> objects
+        //p-change: list<GameObject*> * objects
+
 
 
 public:
+    list<GameObject*> objects;
+
     Room(const string *_name, const string *_desc, list<GameObject*> &_objects);
 
     ~Room();
@@ -52,12 +56,14 @@ public:
     static void addRoom(Room* room);
 
 
-    void addObject(GameObject * gameObject);
-    void deleteObject(GameObject * gameObject);
 
-    //getObjects
-        //
+    void addObject_room(GameObject * gameObject);
+    void deleteObject_room(GameObject * to_eliminate_object);
+    bool isPresent_room(string keyword_);
+    GameObject * getObject(string keyword);
 
+
+    const string getDescription();
 
 
     Room* getNorth() const;

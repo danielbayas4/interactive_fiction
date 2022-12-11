@@ -30,6 +30,13 @@ const string r5desc = "You are the green room. You know because it's green. That
 const string badExit = "You can't go that way.";
 const string badCommand = "I don't understand that.";
 
+const string non_existent_object = "The object you mentioned does not exist neither in the room or in your inventory";
+const string already_inventory = "The object you mentioned is already in the inventory";
+
+const string already_room = "The object you mentioned is already in the room";
+
+//todo: errors que deberían aparecer si es que no existe el objeto que se quieren dentro de
+
 
 
 
@@ -37,23 +44,23 @@ const string badCommand = "I don't understand that.";
 
 const string o1 = "Hammer";
 const string des1 = "Defend from a zombie";
-const string keyword1 = "weapon:1";
+const string keyword1 = "ham";
 
 const string o2 = "Knife";
 const string des2 = "Defend from a zombie";
-const string keyword2 = "weapon:2";
+const string keyword2 = "kn";
 
 const string o3 = "Peak";
 const string des3 = "Defend from a zombie";
-const string keyword3 = "weapon:3";
+const string keyword3 = "peak";
 
 const string o4 = "Water";
 const string des4 = "Nurture and survive";
-const string keyword4 = "nurture: water";
+const string keyword4 = "co2";
 
 const string o5= "Food";
 const string des5 = "Nurture and survive";
-const string keyword5 = "nurture: food";
+const string keyword5 = "food";
 
 
 #endif //TEXTADV_STRINGS_H
