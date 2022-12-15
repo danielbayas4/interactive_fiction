@@ -10,7 +10,6 @@
 #include "strings.h"
 #include <iostream>
 
-
 using std::string;
 using namespace std;
 
@@ -23,23 +22,15 @@ private:
     Room* east;
     Room* south;
     Room* west;
-
-
-    //p-cause: estoy declarando mal esta variable
-        //p-change: list<GameObject> objects
-        //p-change: list<GameObject*> * objects
-
-
+    list<GameObject*> objects;
 
 public:
-    list<GameObject*> objects;
 
     Room(const string *_name, const string *_desc, list<GameObject*> &_objects);
 
     ~Room();
 
-    //string displayObjects();
-    void describe() const;
+    void describe_room() const;
 
     /**
      * List storing all rooms that have been registered via addRoomPar().
@@ -60,10 +51,23 @@ public:
     void addObject_room(GameObject * gameObject);
     void deleteObject_room(GameObject * to_eliminate_object);
     bool isPresent_room(string keyword_);
-    GameObject * getObject(string keyword);
+    GameObject * getObject_room(string keyword);
+
+    string getName();
 
 
-    const string getDescription();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     Room* getNorth() const;

@@ -31,7 +31,7 @@ const string badExit = "You can't go that way.";
 const string badCommand = "I don't understand that.";
 
 const string non_existent_object = "The object you mentioned does not exist neither in the room or in your inventory";
-const string already_inventory = "The object you mentioned is already in the inventory";
+const string already_inventory = "You already have the object (Are you silly?)";
 
 const string already_room = "The object you mentioned is already in the room";
 
