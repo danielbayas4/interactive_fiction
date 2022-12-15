@@ -11,8 +11,8 @@
 #include <iostream>
 
 using namespace std;
-using std::string;
 
+using std::string;
 
 
 class GameObject {
@@ -23,13 +23,11 @@ private:
     const string* keyword;
 
 public:
-    GameObject(const string * _name, const string * _desc, const string * _keyword);
+    GameObject(const string * _name, const string * _desc, const string * _keyword); //Tengo que agregar el pointer aquí
+
 
     const string * getKeyword();
-    const string * getName();
-
-    void complete_description();
-    void short_description();
+    void describe();
 };
 
 

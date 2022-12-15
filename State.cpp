@@ -11,8 +11,9 @@
 /**
  * Display the description of the room the player is in. */
 
+
 void State::announceLoc() const {
-    this->currentRoom->describe_room();
+    this->currentRoom->describe();
 }
 
 /**
@@ -47,30 +48,18 @@ void State::add_to_inventory(GameObject * gameObject) {
 }
 
 void State::deleteObject_inventory(GameObject * to_be_eliminated) {
-
     State::inventory.remove(to_be_eliminated);
 }
 
 void State::describe_objects_inventory(){
-    if (inventory.empty()){
-        cout << "       " << endl;
-        cout << "There are not objects in your inventory \n" << endl;
+    for (const auto object: inventory) { //p-change: debería quitar const?
+        cout << "🔶 Here is the list of objects of the inventory 🔶" << endl;
+        object->describe();
     }
-
-    else {
-        cout << "       " << endl;
-        cout << "🔶 Inventory objects 🔶" << endl;
-
-        for (const auto object: inventory) { //p-change: debería quitar const?
-            object->short_description();
-        }
-
-    }
-    cout << "       " << endl;
 }
 
 bool State::isPresent_inventory(string keyword){
-    //alt: si es que getObject_inventory no me da null, entonces regresa true
+    //alt: si es que getObject no me da null, entonces regresa true
 
     for (auto object: inventory){
         //todo:que compare los dos strings
@@ -82,14 +71,24 @@ bool State::isPresent_inventory(string keyword){
     return false;
 }
 
-GameObject * State::getObject_inventory(string keyword_input){
-    for (const auto object: inventory){
-        int are_equals = keyword_input.compare(*(object-> getKeyword()));
+GameObject * State::getObject(string keyword_input){
+    const string * keyword;
 
-        if (are_equals == 0){
+    for (auto object: inventory){
+        keyword = object->getKeyword();
+
+        if(keyword->compare(keyword_input) == 0){
             return object;
         }
     }
-    return nullptr;
+
+    for (auto object:getCurrentRoom()-> objects){
+        keyword = object->getKeyword();
+
+        if (keyword -> compare(keyword_input)){
+            return object;
+        }
+
     }
+}
 

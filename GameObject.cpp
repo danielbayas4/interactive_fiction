@@ -16,11 +16,7 @@ const string * GameObject::getKeyword(){
     return keyword;
 }
 
-const string * GameObject::getName(){
-    return name;
-}
-
-void GameObject:: complete_description(){
+void GameObject:: describe(){
     cout << "- Complete name: ";
     wrapOut(name);
     wrapEndPara();
@@ -35,8 +31,4 @@ void GameObject:: complete_description(){
 
 
 }
-void GameObject::short_description(){
-    cout << "- " << *name << ":" << *keyword << endl;
-}
-
 

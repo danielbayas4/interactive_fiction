@@ -17,12 +17,10 @@ public:
     Room* getCurrentRoom() const;
 
     void deleteObject_inventory(GameObject * to_be_eliminated); //[m] Expansion: Debería usar el pointer o solamente '(string input-keyword)' ?
-    void add_to_inventory(GameObject * to_be_added);
-
+    void add_to_inventory(GameObject * gameObject);
     void describe_objects_inventory();
-
     bool isPresent_inventory(string keyword);
-    GameObject * getObject_inventory(string  keyword_input);
+    GameObject * getObject(string  keyword);
 
 };
 
