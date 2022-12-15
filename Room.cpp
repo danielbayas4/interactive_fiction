@@ -29,19 +29,27 @@ Room::~Room() {
     Room::rooms.remove(this);
 }
 
-void Room::describe() const {
-    //req-output: se tiene que imprimir la lista de objetos en el command line
+void Room::describe_room() const {
 
     wrapOut(this->name);
     wrapEndPara();
     wrapOut(this->description);
     wrapEndPara();
 
-    for (const auto object: objects) { //p-change: debería quitar const?
-        cout << "🔶 Here is the list of objects of the room 🔶" << endl;
-        object->describe();
-    }
+    if (objects.empty()){
 
+        cout << "       " << endl;
+        cout << "There are not objects in this room" << endl;
+    } else {
+        //req-output: se tiene que imprimir la lista de objetos en el command line
+
+        cout << "       " << endl;
+        cout << "🔶 List of objects of the room 🔶" << endl;
+        for (const auto object: objects) { //p-change: debería quitar const?
+            object->short_description();
+        }
+    }
+    cout << "       " << endl;
 }
 
 
@@ -67,38 +75,27 @@ bool Room::isPresent_room (string keyword_){ //p-cause: si va con el & ?
 
         if (are_equals == 0){
             return true;
-        } else{
-            return false;
         }
-    }
 
     }
+        return false;
+    }
 
 
-GameObject * Room::getObject(string keyword){
-    //des-pro: incorporarlo en el main, en ves de solo usar el de state forecast
+
+
+GameObject * Room::getObject_room(string keyword){
+    //consi: Uso esta función considerando que el objeto si existe dentro del cuarto, por lo que mi código no llegaría a esta sección
 
     for (const auto object: objects){
         int are_equals = keyword.compare(*(object-> getKeyword()));
 
-
         if (are_equals == 0){
             return object;
         }
-        else{
-            return nullptr;
-        }
     }
+    //return nullptr;
 
-    for (const auto object: this->objects){
-        //do-tur:comparar los dos strings
-            //other: usando el equals
-            //other: usando la función compare
-        if(keyword.compare(*(object-> getKeyword()))){
-            return object;
-        }
-    }
-    //consi: Uso esta función considerando que el objeto si existe dentro del cuarto, por lo que mi código no llegaría a esta sección
 }
 
 
@@ -153,4 +150,8 @@ Room* Room::getWest() const {
 
 void Room::setWest(Room *_west) {
     this -> west = _west;
+}
+
+string Room::getName() {
+    return *name;
 }
